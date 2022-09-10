@@ -1,5 +1,6 @@
 
 
+// wrap code with variable
 const input = document.querySelector(".input");
 const result = document.querySelector('.result')
 const deleteBtn = document.querySelector('.delete');
@@ -36,7 +37,7 @@ const  handleKeyPress=(e) =>{
         input.innerHTML = operation;
         return;
     }
-    // check if the operators existsas a last character in the operation String, keeypad input exist within operator array
+    // check if the operators exists as a last character in the operation String, keeypad input exist within operator array
     if(operators.indexOf(lastChar) !== -1 && operators.indexOf(key) !==-1){
         operation = operation.replace(/./, key);
         input.innerHTML = operation;
@@ -80,12 +81,7 @@ const evaluate = (e) =>{
             result.innerHTML = answer;
             return;
         }
-        // if(key === "ce"){
-        //     decimalAdded = false;
-        //     operation = 0;
-        //     input.innerHTML = operation;
-        //     result.innerHTML = `${answer}`;
-        // }
+        
        
         result.innerHTML = answer;
     } catch (error) {
@@ -97,29 +93,17 @@ const evaluate = (e) =>{
         console.log(error)
     }
 }
-clearBtn.addEventListener('click',clearInput)
-ceBtn.addEventListener("click", clearInput)
-
-const clearInput =(e) =>{
+const clearInput =() =>{
     operation = 0;
     answer = 0;
     result.innerHTML = answer
     input.innerHTML = operation;
 }
-// function ceInput(){
-//     // if(e.ctrlKey){
-//     //     operation = 0;
-//     //     answer = 0;
-//     //     input.innerHTML = operation;
-//     //     result.innerHTML = answer;
-//     //     return;
-//     // }
-//     operation = 0;
-    
-//     input.innerHTML = operation;
-// }
+clearBtn.addEventListener('click',clearInput)
+ceBtn.addEventListener("click", clearInput)
+
+
 function deleteInput(){
-   
     operation = operation.slice(0,-1);
     input.innerHTML = operation;
 }
